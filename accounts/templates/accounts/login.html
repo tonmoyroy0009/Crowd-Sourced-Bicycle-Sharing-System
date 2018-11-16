@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if error %}
+{{error}}
+<br />
+<br />
+
+{% endif %}
+
+<h1>Login</h1>
+
+<form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    UserName:
+    <br />
+    <input type="text" name="username" placeholder="username" />
+    <br />
+    Password:
+    <br />
+    <input type="password"  name="password" placeholder="password"/>
+    
+    <br />
+    <br />
+    <input class="btn btn-primary" type="submit" value="login" />
+    <div class="form-links">
+        <li class="pull-left"><a href="{% url 'signup' %}">Don't have an account?</a></li>
+        <li class="pull-right"><a href="forget-password.html">Lost your password?</a></li>
+    </div>
+
+</form>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if error %}
+{{error}}
+<br />
+<br />
+
+{% endif %}
+
+<h1>Sign Up!</h1>
+
+<form method="POST" action="{% url 'signup' %}">
+    {% csrf_token %}
+    FirstName:
+    <br />
+    <input type="text" name="firstname" placeholder="firstname"/>
+    <br />
+    LastName:
+    <br />
+    <input type="text" name="lastname" placeholder="lastname"/>
+    <br />
+    UserName:
+    <br />
+    <input type="text" name="username" placeholder="username"/>
+    <br />
+    Email:
+    <br />
+    <input type="text" name="email" placeholder="email" required/>
+    <br />
+    PhoneNumber:
+    <br />
+    <input type="text" name="phonenumber" placeholder="phonenumber" required/>
+    <br />
+    ColorPhoto:
+    <br />
+    <input type="file" name="image" required/>
+    <br />
+    NidNumber:
+    <br />
+    <input type="text" name="nidnumber" placeholder="nidnumber" required/>
+    <br />
+    Password:
+    <br />
+    <input type="password" name="password1" placeholder="password" required/>
+    <br />
+    Confirm Password:
+    <br />
+    <input type="password" name="password2" placeholder="re-type password" required/>
+    <br />
+    <br />
+    <input class="btn btn-primary" type="submit" value="Sign Up!" />
+</form>
+<br />
+
+{% endblock %}
