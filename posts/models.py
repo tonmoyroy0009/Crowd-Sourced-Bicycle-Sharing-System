@@ -23,7 +23,8 @@ class Post(models.Model):
     url = models.TextField()
     image = models.ImageField(upload_to='images/')
     icon = models.ImageField(upload_to='images/')
-    commenter = models.ForeignKey(User, on_delete=models.CASCADE)
+    votes_total =models.IntegerField(default=1)
+    hunter = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
