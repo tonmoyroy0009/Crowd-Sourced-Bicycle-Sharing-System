@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Post
 from django.utils import timezone
@@ -22,11 +22,14 @@ def post(request):
             post.icon = request.FILES['icon']
             post.image = request.FILES['image']
             post.pub_date = timezone.datetime.now()
-            post.votes_total = 1
             post.hunter = request.user
             post.save()
-            return redirect('home')
+            return redirect('/posts/' + str(post.id))
         else:
             return render(request, 'posts/post.html', {'error':'All fields are required'})
     else:
         return render(request, 'posts/post.html') 
+
+def detail(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    return render(request, 'posts/detail.html', {'post': post})

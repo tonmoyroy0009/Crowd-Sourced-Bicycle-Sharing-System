@@ -15,9 +15,9 @@
     <!-- Bootstrap core CSS -->
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="{% static 'open-iconic/font/css/open-iconic-bootstrap.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/blog-post.css" rel="stylesheet">
 
   </head>
 
@@ -36,8 +36,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <div class="navbar-nav ml-auto">
-              <a class="nav-link" href="#"> HOME </a>
-              <a class="nav-link" href="#"> POSTS </a>
+
+              <a class="nav-link" href="{% url 'post' %}"><span class="oi oi-plus"></span></a>
               <a class="nav-link" href="#"> FAQ </a>
               <a class="nav-link" href="#"> ABOUT US </a>
               <a class="nav-link" href="#"> CONTACT US </a>
