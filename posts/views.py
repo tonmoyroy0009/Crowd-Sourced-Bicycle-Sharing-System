@@ -11,7 +11,7 @@ def home(request):
 @login_required
 def post(request):
     if request.method == 'POST':
-        if request.POST['title'] and request.POST['body'] and  request.POST['url'] and request.FILES['icon'] and request.FILES['image']:
+        if request.POST['title'] and request.POST['body'] and  request.POST['url']  and request.FILES['image']:
             post = Post()
             post.title = request.POST['title']
             post.body = request.POST['body']
@@ -19,7 +19,6 @@ def post(request):
                 post.url = request.POST['url']
             else:
                 post.url ='http://' + request.POST['url']
-            post.icon = request.FILES['icon']
             post.image = request.FILES['image']
             post.pub_date = timezone.datetime.now()
             post.hunter = request.user
