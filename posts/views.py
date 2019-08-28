@@ -6,7 +6,8 @@ from django.utils import timezone
 # Create your views here.
 
 def home(request):
-    return render(request, 'posts/home.html')
+    posts = Post.objects
+    return render(request, 'posts/home.html', {'posts':posts} )
 
 @login_required
 def post(request):
